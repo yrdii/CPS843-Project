@@ -1,0 +1,17 @@
+#canvas {
+    background: #ececec;
+    margin: auto;
+    width: 80%;
+    border-radius:10px;
+    text-align: center;
+}
+
+#canvasHistogram{
+    margin: auto;
+    width: 50%;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}

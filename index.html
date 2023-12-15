@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Online Image Processor</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-info mb-5">
+        <div class="container">
+            <a href="#" class="navbar-brand">Online Image Processor</a>
+        </div>
+    </nav>
+    <div class="preview-wrapper">
+        <div class="row">
+            <div class="col-md-8 m-auto" align="center" id="demo">
+                <div class="form-group mb-2" style="width: 80%">
+                    <input class="form-control" type="file" id="upload-file" accept="image/*" />
+                </div>
+                <canvas id="canvas"></canvas>
+                <div align="center" class="mt-2"><button class="filter-btn equalization btn btn-outline-light btn-block" type="button" id="equ-btn">Histogram Equalization</button></div>
+
+                <div class="mt-2">
+                    <p>Histogram</p>
+                </div>
+                <canvas id="canvasHistogram" style="width: 100%"></canvas>
+
+                <h4 class="text-center my-3">Filters</h4>
+                <div class="row my-4 text-center">
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn brightness-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Brightness</button>
+                            <button class="filter-btn brightness-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn contrast-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Contrast</button>
+                            <button class="filter-btn contrast-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn saturation-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Saturation</button>
+                            <button class="filter-btn saturation-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn vibrance-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Vibrance</button>
+                            <button class="filter-btn vibrance-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn exposure-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Exposure</button>
+                            <button class="filter-btn exposure-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn noise-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Noise</button>
+                            <button class="filter-btn noise-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-4 text-center">
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn sharpen-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Sharpen</button>
+                            <button class="filter-btn sharpen-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn sepia-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Sepia</button>
+                            <button class="filter-btn sepia-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn hue-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Hue</button>
+                            <button class="filter-btn hue-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn blur-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Blur</button>
+                            <button class="filter-btn blur-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn gamma-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Gamma</button>
+                            <button class="filter-btn gamma-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group btn-group-sm">
+                            <button class="filter-btn clip-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled">Clip</button>
+                            <button class="filter-btn clip-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="text-center my-3">Effects</h4>
+                <div class="row mb-3 text-center">
+                    <div class="col-md-2">
+                        <button class="filter-btn retro-add btn btn-outline-light btn-block" type="button">Retro</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="filter-btn grey-add btn btn-outline-light btn-block">Grey Scale</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="filter-btn grungy-add btn btn-outline-light btn-block">Grungy</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="filter-btn glowingSun-add btn btn-outline-light btn-block">Glowing Sun</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="filter-btn hazyDays-add btn btn-outline-light btn-block">Hazy Days</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="filter-btn clarity-add btn btn-outline-light btn-block">Clarity</button>
+                    </div>
+                </div>
+
+                <div class="row my-4 text-center">
+                    <div class="col-md-6">
+                        <button id="download-btn" class="btn btn-primary btn-block">Download Image</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="revert-btn" class="btn btn-danger btn-block">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
