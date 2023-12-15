@@ -2,4 +2,4 @@
 ## Image Processing Web Application
 Please open your browser to full window size for best experience 💖
 
-You can use the demo picture provided or upload your own picture
+You can use the _demo.jpg_ provided or upload your own picture
